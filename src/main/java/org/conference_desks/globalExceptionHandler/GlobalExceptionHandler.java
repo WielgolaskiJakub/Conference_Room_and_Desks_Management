@@ -39,7 +39,6 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handleGeneralException(Exception ex, HttpServletRequest request) {
-       ex.printStackTrace();
         return buildErrorResponse(ErrorCode.INTERNAL_ERROR, request.getRequestURI(), ex.getMessage());
     }
 

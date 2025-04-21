@@ -7,8 +7,6 @@ import org.conference_desks.reservation.ReservationRepository;
 import org.conference_desks.room.Room;
 import org.conference_desks.room.RoomRepository;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service

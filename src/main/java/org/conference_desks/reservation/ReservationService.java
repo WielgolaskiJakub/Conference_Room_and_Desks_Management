@@ -2,7 +2,6 @@ package org.conference_desks.reservation;
 
 import org.conference_desks.User.User;
 import org.conference_desks.User.UserRepository;
-import org.conference_desks.calendarEvent.CalendarEventRepository;
 import org.conference_desks.calendarEvent.CalendarEventService;
 import org.conference_desks.desk.Desk;
 import org.conference_desks.desk.DeskRepository;
