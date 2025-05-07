@@ -11,8 +11,8 @@ public enum ErrorCode {
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, "error.user.not.found"),
     ROOM_NOT_FOUND(HttpStatus.NOT_FOUND, "error.desk.not.found"),
     RESERVATION_NOT_FOUND(HttpStatus.NOT_FOUND, "error.reservation.not.found"),
-    CALENDAR_EVENT_NOT_FOUND(HttpStatus.NOT_FOUND, "error.calendar.event.not.found");
-
+    CALENDAR_EVENT_NOT_FOUND(HttpStatus.NOT_FOUND, "error.calendar.event.not.found"),
+    ACCESS_DENIED(HttpStatus.FORBIDDEN, "error.access.denied");
     private final HttpStatus status;
     private final String messageKey;
 

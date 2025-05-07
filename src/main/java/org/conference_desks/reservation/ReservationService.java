@@ -24,7 +24,7 @@ public class ReservationService {
 
     public ReservationService(ReservationRepository reservationRepository,
                               RoomRepository roomRepository,
-                              UserRepository userRepository,
+                            UserRepository userRepository,
                               DeskRepository deskRepository,
                               CalendarEventService calendarEventService) {
         this.reservationRepository = reservationRepository;

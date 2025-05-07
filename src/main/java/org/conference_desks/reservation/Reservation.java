@@ -3,7 +3,7 @@ package org.conference_desks.reservation;
 import jakarta.persistence.*;
 import lombok.*;
 import org.conference_desks.User.User;
-import org.conference_desks.common.ReservationType;
+import org.conference_desks.common.TypeOfReservation;
 import org.conference_desks.desk.Desk;
 import org.conference_desks.room.Room;
 
@@ -29,7 +29,7 @@ public class Reservation {
     LocalDateTime endTime;
 
     @Enumerated(EnumType.STRING)
-    ReservationType type;
+    TypeOfReservation type;
 
     String title;
 

@@ -5,10 +5,12 @@ import org.conference_desks.common.MessageService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.nio.file.AccessDeniedException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +23,13 @@ public class GlobalExceptionHandler {
     public GlobalExceptionHandler(MessageService messageService) {
         this.messageService = messageService;
     }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<Map<String, Object>> handleAccessDeniedException(AccessDeniedException ex, HttpServletRequest request) {
+        return buildErrorResponse(ErrorCode.ACCESS_DENIED, request.getRequestURI());
+    }
+
+
 
     @ExceptionHandler(ApiException.class)
     public ResponseEntity<Map<String, Object>> handleApiException(ApiException ex, HttpServletRequest request) {
@@ -39,6 +48,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handleGeneralException(Exception ex, HttpServletRequest request) {
+        ex.printStackTrace();
         return buildErrorResponse(ErrorCode.INTERNAL_ERROR, request.getRequestURI(), ex.getMessage());
     }
 

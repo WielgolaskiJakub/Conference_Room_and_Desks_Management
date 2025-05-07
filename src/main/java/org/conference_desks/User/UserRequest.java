@@ -4,7 +4,6 @@ import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.conference_desks.common.Role;
-
 @Getter
 @Setter
 public class UserRequest {
