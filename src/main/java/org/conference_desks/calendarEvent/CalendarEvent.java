@@ -31,6 +31,6 @@ public class CalendarEvent {
     Room room;
 
     @ManyToOne
-    @JoinColumn(name = "reservation_id")
+    @JoinColumn(name = "reservation_id", nullable = false)
     Reservation reservation;
 }

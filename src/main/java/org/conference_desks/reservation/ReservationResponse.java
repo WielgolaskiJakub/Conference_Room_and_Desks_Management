@@ -2,7 +2,7 @@ package org.conference_desks.reservation;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.conference_desks.common.ReservationType;
+import org.conference_desks.common.TypeOfReservation;
 
 
 import java.time.LocalDateTime;
@@ -14,13 +14,13 @@ public class ReservationResponse {
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private String title;
-    private ReservationType reservationType;
+    private TypeOfReservation reservationType;
     private Long roomId;
     private Long deskId;
 
 
 
-    public ReservationResponse(Long id, LocalDateTime startTime, LocalDateTime endTime,String title, ReservationType reservationType, Long roomId, Long deskId) {
+    public ReservationResponse(Long id, LocalDateTime startTime, LocalDateTime endTime,String title, TypeOfReservation reservationType, Long roomId, Long deskId) {
         this.id = id;
         this.startTime = startTime;
         this.endTime = endTime;

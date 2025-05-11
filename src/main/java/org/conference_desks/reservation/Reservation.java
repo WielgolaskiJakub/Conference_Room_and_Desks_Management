@@ -3,7 +3,8 @@ package org.conference_desks.reservation;
 import jakarta.persistence.*;
 import lombok.*;
 import org.conference_desks.User.User;
-import org.conference_desks.common.ReservationType;
+import org.conference_desks.calendarEvent.CalendarEvent;
+import org.conference_desks.common.TypeOfReservation;
 import org.conference_desks.desk.Desk;
 import org.conference_desks.room.Room;
 
@@ -29,7 +30,7 @@ public class Reservation {
     LocalDateTime endTime;
 
     @Enumerated(EnumType.STRING)
-    ReservationType type;
+    TypeOfReservation type;
 
     String title;
 
@@ -52,4 +53,9 @@ public class Reservation {
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
     List<User> invitedUsers = new ArrayList<>();
+
+    @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CalendarEvent> events = new ArrayList<>();
+
+
 }

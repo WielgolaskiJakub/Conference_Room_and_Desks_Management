@@ -24,7 +24,7 @@ public class ReservationService {
 
     public ReservationService(ReservationRepository reservationRepository,
                               RoomRepository roomRepository,
-                              UserRepository userRepository,
+                            UserRepository userRepository,
                               DeskRepository deskRepository,
                               CalendarEventService calendarEventService) {
         this.reservationRepository = reservationRepository;
@@ -36,6 +36,13 @@ public class ReservationService {
 
     public List<ReservationResponse> getAllReservations() {
         return reservationRepository.findAll().stream().map(this::mapToResponse).toList();
+    }
+
+    public List<ReservationResponse> getReservationsByUserId(Long userId) {
+        List<Reservation> reservations = reservationRepository.findAllByCreatedBy_Id(userId);
+        return reservations.stream()
+                .map(this::mapToResponse)
+                .toList();
     }
 
     public ReservationResponse getReservationById(Long id) {
