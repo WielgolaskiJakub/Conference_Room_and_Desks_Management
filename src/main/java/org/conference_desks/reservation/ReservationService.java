@@ -38,6 +38,13 @@ public class ReservationService {
         return reservationRepository.findAll().stream().map(this::mapToResponse).toList();
     }
 
+    public List<ReservationResponse> getReservationsByUserId(Long userId) {
+        List<Reservation> reservations = reservationRepository.findAllByCreatedBy_Id(userId);
+        return reservations.stream()
+                .map(this::mapToResponse)
+                .toList();
+    }
+
     public ReservationResponse getReservationById(Long id) {
         Reservation reservation = reservationRepository.findById(id).
                 orElseThrow(() -> new ApiException(ErrorCode.RESERVATION_NOT_FOUND, id));
